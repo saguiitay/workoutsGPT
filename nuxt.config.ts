@@ -18,7 +18,7 @@ export default defineNuxtConfig({
       ],
       script: [
         // plausible
-        { src: 'https://plausible.io/js/plausible.js', defer: true, 'data-domain': 'workoutsgpt.com' },
+        //{ src: 'https://plausible.io/js/plausible.js', defer: true, 'data-domain': 'workoutsgpt.com' },
       ],
       link: [
         {
