@@ -106,6 +106,7 @@
       </div>
     </div>
   </div>
+  
 </template>
 <script setup lang="ts">
 useHead({ title: 'WorksoutsGPT - Create Workouts in Seconds with chatGPT' })
@@ -148,9 +149,9 @@ async function generate() {
 
   try {
     // add plausible event
-    if (window.plausible) {
-      window.plausible('workoutGenerated')
-    }
+    //if (window.plausible) {
+    //  window.plausible('workoutGenerated')
+    //}
 
     // generate the workout
     const data = await $fetch('/api/generate', {
