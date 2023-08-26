@@ -19,6 +19,8 @@ export default defineNuxtConfig({
       script: [
         // plausible
         //{ src: 'https://plausible.io/js/plausible.js', defer: true, 'data-domain': 'workoutsgpt.com' },
+        { src: 'https://www.googletagmanager.com/gtag/js?id=G-SXBT5PD8V5', async: true },
+        { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7040466421713161', async: true, crossorigin: 'anonymous' },
       ],
       link: [
         {

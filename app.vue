@@ -114,17 +114,10 @@
       </div>
     </div>
   </div>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SXBT5PD8V5"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SXBT5PD8V5');
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7040466421713161" crossorigin="anonymous"></script>
 </template>
+
 <script setup lang="ts">
+import { onMounted } from 'vue'
 useHead({ title: 'Workouts AI - Create Workouts in Seconds with AI' })
 
 const loading = ref(false)
@@ -189,7 +182,16 @@ async function generate() {
   // end loading
   loading.value = false
 }
+
+onMounted(() => {
+// Google Analytics
+window.dataLayer = window.dataLayer || [];
+function gtag(){window.dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-SXBT5PD8V5');
+})
 </script>
+
 <style scoped>
 /* Header */
 header {
