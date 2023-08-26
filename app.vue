@@ -2,7 +2,7 @@
   <div class="wrapper">
     <!-- Nav -->
     <nav class="center">
-      <h2>💪 WorkoutsGPT</h2>
+      <h2>💪 Workouts AI</h2>
     </nav>
 
     <!-- Header -->
@@ -117,7 +117,7 @@
   
 </template>
 <script setup lang="ts">
-useHead({ title: 'WorksoutsGPT - Create Workouts in Seconds with chatGPT' })
+useHead({ title: 'Workouts AI - Create Workouts in Seconds with AI' })
 
 const loading = ref(false)
 
