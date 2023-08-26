@@ -21,9 +21,26 @@
         </select>
       </div>
 
+      <!-- Type (minutes) -->
+      <div>
+        <label><strong>2. Choose a workout type</strong></label>
+        <div class="options">
+          <div
+            v-for="(item, index) in workoutTypes"
+            :key="index"
+            class="option"
+            :class="{ 'option-selected': workoutType === item }"
+            @click="toggleWorkoutType(item)"
+          >
+            <span class="option-check">✔️</span>
+            {{ item }}
+          </div>
+        </div>
+      </div>
+
       <!-- Location  -->
       <div>
-        <label><strong>2. Where are you working out?</strong></label>
+        <label><strong>3. Where are you working out?</strong></label>
         <div class="options">
           <div
             v-for="(item, index) in locations"
@@ -40,7 +57,7 @@
 
       <!-- Muscle Groups -->
       <div>
-        <label><strong>3. Choose which muscle groups to workout</strong></label>
+        <label><strong>4. Choose which muscle groups to workout</strong></label>
         <div class="options">
           <div
             v-for="(item, index) in muscleGroups"
@@ -83,6 +100,7 @@
       <div>
         <div v-if="workout" class="workout">
           <label><strong>Here's your workout:</strong></label>
+          <!--<div v-html="$mdRenderer.render(workout)"></div>-->
           <p>{{ workout }}</p>
         </div>
       </div>
@@ -91,8 +109,7 @@
       <div class="made-by center">
         <p>
           Built by <a href="https://twitter.com/saguiitay" target="_blank">Sagui Itay</a> based on a project created by <a href="https://twitter.com/Timb03" target="_blank">Tim Bennetto</a>
-          using <a href="https://chat.openai.com/chat" target="_blank">chatGPT</a> and hosted on <a href="https://vercel.com" target="_blank">Vercel</a>'s
-          free plan.
+          using <a href="https://chat.openai.com/chat" target="_blank">chatGPT</a> and hosted on <a href="https://vercel.com" target="_blank">Vercel</a>'s free plan.
         </p>
       </div>
     </div>
@@ -112,13 +129,18 @@ function toggleLocation(value: string) {
 }
 
 // workout length
-const length = ref(30)
-const lengths = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]
+const length = ref(60)
+const lengths = [15,30,45,60,90,120]
 
+const workoutType = ref('powerlifting')
+const workoutTypes = ref(['powerlifting', 'bodybuilding', 'crossfit'])
+function toggleWorkoutType(value: string) {
+  workoutType.value = value
+}
 // muscle groups
 const muscleGroups = ['biceps', 'back', 'abs', 'legs', 'shoulders', 'chest', 'quadriceps', 'hamstrings', 'calves', 'triceps', 'forearms']
 const muscleGroupsAdvanced = ['glutes', 'transverse abs', 'psoas']
-const muscleGroupsSelected = ref(['biceps'])
+const muscleGroupsSelected = ref(['back','legs', 'chest'])
 
 function toggleMuscleGroup(value: string) {
   const index = muscleGroupsSelected.value.findIndex((v) => v === value)
@@ -147,7 +169,7 @@ async function generate() {
     // generate the workout
     const data = await $fetch('/api/generate', {
       method: 'post',
-      body: { length: length.value, muscleGroups: muscleGroupsSelected.value, location: location.value },
+      body: { length: length.value, muscleGroups: muscleGroupsSelected.value, location: location.value, workoutType: workoutType.value },
     })
 
     // set the results
