@@ -122,6 +122,7 @@
     gtag('js', new Date());
     gtag('config', 'G-SXBT5PD8V5');
   </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7040466421713161" crossorigin="anonymous"></script>
 </template>
 <script setup lang="ts">
 useHead({ title: 'Workouts AI - Create Workouts in Seconds with AI' })
