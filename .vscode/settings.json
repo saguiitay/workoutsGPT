@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/e5e5af5d-b6c8-4a5e-b8cd-9fb56a964df9/resourceGroups/projects/providers/Microsoft.Web/sites/WorkoutsTools",
+    "appService.deploySubpath": "."
+}
